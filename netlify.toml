@@ -1,3 +1,8 @@
 [context.production]
   command = "yarn prod"
   publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://standard.tradezeroweb.co"
