@@ -14,7 +14,7 @@
     "lint:prettier": "prettier \"**/*.{ts,tsx,js,json,yaml,yml,md,scss,css,html}\" -l",
     "lint:types": "tsc --noEmit",
     "pretty": "prettier \"**/*.{ts,tsx,js,json,yaml,yml,md,scss,css,html}\" --write",
-    "build": "webpack -p --config webpack.prod.js",
+    "prod": "webpack -p --config webpack.prod.js",
     "test": "jest src/js",
     "test:watch": "jest src --watch"
   },
