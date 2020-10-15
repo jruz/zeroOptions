@@ -11,7 +11,7 @@ const Config = {
     disableHostCheck: true,
     historyApiFallback: true,
     host: '0.0.0.0',
-    sockHost: 'f1b225c8f47f.eu.ngrok.io',
+    sockHost: '2b38128a11da.eu.ngrok.io',
     hot: true,
     stats: {
       modules: false,
