@@ -1,0 +1,44 @@
+.container {
+  text-align: right;
+  width: 800px;
+  font-size: 14px;
+  background-color: #1e1e1e;
+  padding: 10px;
+
+  thead th {
+    text-align: right;
+    font-size: 12px;
+  }
+
+  tbody {
+    font-size: inherit;
+  }
+}
+
+.red {
+  color: #ff3737;
+}
+.green {
+  color: #31b131;
+}
+.tr {
+  &:hover {
+    background-color: #000000;
+  }
+}
+.header {
+  text-transform: uppercase;
+  border-bottom: 1px solid #cccccc;
+}
+.footer {
+  border-top: 1px solid #cccccc;
+}
+
+:global {
+  .text-left {
+    text-align: left !important;
+  }
+  .pointer {
+    cursor: pointer;
+  }
+}

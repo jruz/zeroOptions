@@ -1,5 +1,6 @@
 export type StateT = {
   change: number;
+  click: () => void;
   cost: number;
   currentPrice: number;
   currentValue: number;
@@ -80,6 +81,7 @@ export const getData = (): StateT | null => {
   const rows = Array.from(table.rows);
   return rows.map((row: any) => ({
     change: getChange(row.cells),
+    click: () => row.click(),
     cost: getCost(row.cells),
     currentPrice: getCurrentPrice(row.cells),
     currentValue: getCurrentValue(row.cells),
@@ -105,3 +107,8 @@ export const format = (item: number | string): string =>
   Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
     .format(Number(item))
     .split('.')[0];
+
+export const getCash = () => {
+  const node = document.getElementById('h-cash-value').textContent;
+  return Number(node.replace(/[^0-9\.]/g, ''));
+};

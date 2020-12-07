@@ -1,5 +1,4 @@
 const Path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const Shared = {
   entry: {
@@ -19,18 +18,9 @@ const Shared = {
         exclude: /node_modules/,
         loader: ['babel-loader'],
       },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { sourceMap: true } },
-          { loader: 'postcss-loader', options: { sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } },
-        ],
-      },
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [],
 };
 
 module.exports = Shared;
