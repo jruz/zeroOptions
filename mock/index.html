@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>TradeZero</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=1280" />
+
+    <!-- css and font includes -->
+    <link rel="stylesheet" type="text/css" href="./index_files/finchart.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./index_files/normalize.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./index_files/stdIndex.css" />
+    <link rel="stylesheet" type="text/css" href="./index_files/index.css" />
+    <link rel="stylesheet" type="text/css" href="./index_files/roboto.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./index_files/jquery.mCustomScrollbar.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./index_files/jquery.qtip.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./index_files/jquery-ui.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./index_files/finchart-template.css"
+    />
+
+    <link
+      rel="icon"
+      href="https://standard.tradezeroweb.co/static/i/favicon.ico"
+    />
+  </head>
+  <body class="fc-dark-theme" cz-shortcut-listen="true">
+    <div
+      id="page-header-container"
+      class="module-container"
+      style="height: 95px"
+    >
+      <header class="page-header">
+        <div style="width: 1270px; margin: 0 auto">
+          <div class="column">
+            <img class="logo" src="./index_files/logo.png" width="120" />
+          </div>
+          <div class="column">
+            <!-- Panel navigation -->
+            <nav class="panel-navigation">
+              <ul id="navigation-tabs">
+                <li>
+                  <a
+                    id="navigation-button-trading"
+                    data-section="trading"
+                    class=""
+                    >Stocks</a
+                  >
+                </li>
+                <li>
+                  <a
+                    id="navigation-button-options"
+                    data-section="options"
+                    class="active"
+                    >Options</a
+                  >
+                </li>
+                <li>
+                  <a id="navigation-button-settings" data-section="settings"
+                    >Preferences</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="column">
+            <div class="account">
+              <div class="title" style="padding-left: 4px">Account:</div>
+              <label class="select-box select-box-trans" style="width: 100px">
+                <select id="h-select-account">
+                  <option value="JRU86152" data-id="9317">JRU86152</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="column">
+            <div class="board">
+              <div style="padding-top: 5px; height: 44px">
+                <div class="board-cell" style="min-width: 110px">
+                  <div class="name">Day Realized</div>
+                  <div
+                    id="h-realized-value"
+                    class="data green"
+                    style="min-height: 18px"
+                  >
+                    $110.00
+                  </div>
+                </div>
+                <div class="board-cell" style="width: 110px">
+                  <div class="name">Day Unrealized</div>
+                  <div
+                    id="h-unrealizd-pl-value"
+                    class="data red"
+                    style="min-height: 18px"
+                  >
+                    $-33.00
+                  </div>
+                </div>
+                <div class="board-cell" style="width: 105px">
+                  <div class="name">Day Total</div>
+                  <div
+                    id="h-total-pl-value"
+                    class="data green"
+                    style="min-height: 18px"
+                  >
+                    $77.00
+                  </div>
+                </div>
+                <div class="board-cell" style="width: 105px">
+                  <div class="name">Buying Power</div>
+                  <div id="p-bp" class="data" style="min-height: 18px">
+                    $71,129.00
+                  </div>
+                </div>
+                <div class="board-cell" style="width: 105px">
+                  <div class="name">Cash BP</div>
+                  <div id="h-cash-value" class="data" style="min-height: 18px">
+                    $11,854.83
+                  </div>
+                </div>
+              </div>
+              <div style="padding-top: 5px; height: 44px">
+                <div class="board-cell" style="min-width: 110px">
+                  <div class="name">Total Exposure</div>
+                  <div
+                    id="h-exposure-value"
+                    class="data"
+                    style="min-height: 18px"
+                  >
+                    $4,431.80
+                  </div>
+                </div>
+                <div class="board-cell" style="min-width: 110px">
+                  <div class="name">Equity</div>
+                  <div
+                    id="h-equity-value"
+                    class="data green"
+                    style="min-height: 18px"
+                  >
+                    $15,986.40
+                  </div>
+                </div>
+                <div class="board-cell" style="width: 105px">
+                  <div class="name">Equity ratio</div>
+                  <div
+                    id="h-equity-ratio-value"
+                    class="data"
+                    style="min-height: 18px"
+                  >
+                    100.00%
+                  </div>
+                </div>
+                <div class="board-cell" style="width: 105px">
+                  <div class="name">Used LVG</div>
+                  <div
+                    id="h-used-lvg-value"
+                    class="data"
+                    style="min-height: 18px"
+                  >
+                    0.28x
+                  </div>
+                </div>
+                <div class="board-cell" style="width: 105px">
+                  <div class="name">Allowed LVG</div>
+                  <div id="p-allowed-lev" class="data" style="min-height: 18px">
+                    6x
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div style="padding-top: 5px">
+              <div id="h-loginId">JRU86152</div>
+              <a
+                id="logoutURL"
+                href="#"
+                class="button-box button-red-borderd"
+                style="
+                  font-size: 10px;
+                  letter-spacing: normal;
+                  cursor: pointer;
+                  padding: 1px 4px;
+                "
+                >Logout</a
+              >
+            </div>
+            <div class="utility" style="padding-top: 5px">
+              <span id="h-date-value" class="date"
+                >12/31/2020 11:00:36 EST</span
+              >
+              <span id="connection-stats-span" style="color: orange"
+                >118ms</span
+              >
+              <div class="toolbox">
+                <span
+                  id="h-bell"
+                  class="icon-box icon-bell"
+                  style="display: none"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div style="width: 1260px; margin: 0 auto">
+      <!-- Panel options -->
+      <section
+        class="panel-container panel-options"
+        id="options"
+        style="display: block"
+      >
+        <div
+          id="portfolio-container-2"
+          class="module-container module-portfolio"
+          style=""
+          tabindex="-1"
+        >
+          <div class="module-header">
+            <div class="column">
+              <h2 class="heading">Portfolio</h2>
+            </div>
+            <div class="column column-expand">
+              <span class="title">Account:</span>
+              <label
+                class="select-box select-box-dark select-box-light-bordered"
+                style="width: 100px"
+              >
+                <select id="portfolio-account-select-2">
+                  <option value="9317" selected="selected">JRU86152</option>
+                </select>
+              </label>
+            </div>
+            <div class="column">
+              <div class="toolbox">
+                <span class="icon-box icon-toggle"></span>
+              </div>
+            </div>
+          </div>
+          <div class="module-content">
+            <div class="module-tab-header">
+              <ul id="portfolio-tabs-2" class="module-tab-navbar">
+                <li>
+                  <a id="portfolio-tab-op-2" class="active"
+                    >Open Positions
+                    <span
+                      id="portfolio-tab-op-counter-2"
+                      class="portfolio-tab-counter"
+                      >(10)</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a id="portfolio-tab-cp-2"
+                    >Closed Positions
+                    <span
+                      id="portfolio-tab-cp-counter-2"
+                      class="portfolio-tab-counter"
+                    ></span
+                  ></a>
+                </li>
+                <li>
+                  <a id="portfolio-tab-ao-2"
+                    >Active Orders
+                    <span
+                      id="portfolio-tab-ao-counter-2"
+                      class="portfolio-tab-counter"
+                      >(0)</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a id="portfolio-tab-io-2"
+                    >Inactive Orders
+                    <span
+                      id="portfolio-tab-io-counter-2"
+                      class="portfolio-tab-counter"
+                    ></span
+                  ></a>
+                </li>
+                <li>
+                  <a id="portfolio-tab-margin-2"
+                    >Margin view
+                    <span
+                      id="portfolio-tab-margin-counter-2"
+                      class="portfolio-tab-counter"
+                    ></span
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <div id="portfolio-contents-2" class="module-tab-content">
+              <div
+                id="portfolio-content-tab-op-2"
+                class="portfolio-content-tab-op"
+              >
+                <table class="table-1">
+                  <thead>
+                    <tr>
+                      <th>Symbol</th>
+                      <th>Type</th>
+                      <th class="ra"><br />Put/Call</th>
+                      <th class="ra">Strike</th>
+                      <th class="ra">Expiration</th>
+                      <th class="ra">Qty</th>
+                      <th class="ra">P Close</th>
+                      <th class="ra">Entry</th>
+                      <th class="ra">Price</th>
+                      <th class="ra">Change</th>
+                      <th class="ra">%Change</th>
+                      <th class="ra">Day PNL</th>
+                      <th class="ra">PNL</th>
+                      <th>O/N</th>
+                    </tr>
+                  </thead>
+                </table>
+                <div
+                  class="scroll-container mCustomScrollbar _mCS_23 mCS-autoHide mCS_no_scrollbar"
+                  style="height: 240px; position: relative; overflow: visible"
+                >
+                  <div
+                    id="mCSB_23"
+                    class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
+                    tabindex="0"
+                    style="max-height: none"
+                  >
+                    <div
+                      id="mCSB_23_container"
+                      class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                      style="position: relative; top: 0; left: 0"
+                      dir="ltr"
+                    >
+                      <table id="opTable-2" class="table-2 opTable">
+                        <tbody>
+                          <tr
+                            class="op-AMD210115C00090000 odd"
+                            data-root="AMD"
+                            data-index="0"
+                          >
+                            <td class="green">AMD210115C00090000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">90.000</td>
+                            <td class="ra">210115</td>
+                            <td class="ra green">2</td>
+                            <td class="ra">7.335</td>
+                            <td class="ra">3.550</td>
+                            <td class="ra">8.600</td>
+                            <td class="ra green">1.275</td>
+                            <td class="ra green">17.382%</td>
+                            <td class="ra green">253.000</td>
+                            <td class="ra green">1010.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-FDX201218C00280000 odd"
+                            data-root="FDX"
+                            data-index="1"
+                          >
+                            <td class="green">FDX201218C00280000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">280.000</td>
+                            <td class="ra">201218</td>
+                            <td class="ra green">2</td>
+                            <td class="ra">19.657</td>
+                            <td class="ra">12.700</td>
+                            <td class="ra">21.250</td>
+                            <td class="ra green">1.843</td>
+                            <td class="ra green">9.376%</td>
+                            <td class="ra green">318.600</td>
+                            <td class="ra green">1710.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-FDX201211C00300000 odd"
+                            data-root="FDX"
+                            data-index="2"
+                          >
+                            <td class="green">FDX201211C00300000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">300.000</td>
+                            <td class="ra">201211</td>
+                            <td class="ra green">1</td>
+                            <td class="ra">2.922</td>
+                            <td class="ra">3.500</td>
+                            <td class="ra">3.100</td>
+                            <td class="ra green">0.228</td>
+                            <td class="ra green">7.803%</td>
+                            <td class="ra green">17.800</td>
+                            <td class="ra red">-40.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-HUYA201218C00022000 odd"
+                            data-root="HUYA"
+                            data-index="3"
+                          >
+                            <td class="green">HUYA201218C00022000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">22.000</td>
+                            <td class="ra">201218</td>
+                            <td class="ra green">2</td>
+                            <td class="ra">0.139</td>
+                            <td class="ra">0.900</td>
+                            <td class="ra">0.100</td>
+                            <td class="ra green">0.011</td>
+                            <td class="ra green">7.914%</td>
+                            <td class="ra red">-7.800</td>
+                            <td class="ra red">-160.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-LOW210115C00180000 odd"
+                            data-root="LOW"
+                            data-index="4"
+                          >
+                            <td class="red">LOW210115C00180000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">180.000</td>
+                            <td class="ra">210115</td>
+                            <td class="ra green">2</td>
+                            <td class="ra">0.326</td>
+                            <td class="ra">5.500</td>
+                            <td class="ra">0.250</td>
+                            <td class="ra red">-0.056</td>
+                            <td class="ra red">-17.178%</td>
+                            <td class="ra red">-15.200</td>
+                            <td class="ra red">-1050.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-NET201218C00070000 odd"
+                            data-root="NET"
+                            data-index="5"
+                          >
+                            <td class="green">NET201218C00070000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">70.000</td>
+                            <td class="ra">201218</td>
+                            <td class="ra green">2</td>
+                            <td class="ra">5.884</td>
+                            <td class="ra">2.750</td>
+                            <td class="ra">8.200</td>
+                            <td class="ra green">2.426</td>
+                            <td class="ra green">41.230%</td>
+                            <td class="ra green">463.200</td>
+                            <td class="ra green">1090.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-NVDA210115C00560000 odd"
+                            data-root="NVDA"
+                            data-index="6"
+                          >
+                            <td class="green">NVDA210115C00560000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">560.000</td>
+                            <td class="ra">210115</td>
+                            <td class="ra green">1</td>
+                            <td class="ra">21.090</td>
+                            <td class="ra">23.000</td>
+                            <td class="ra">21.800</td>
+                            <td class="ra green">0.600</td>
+                            <td class="ra green">2.845%</td>
+                            <td class="ra green">71.000</td>
+                            <td class="ra red">-120.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-PYPL210115C00230000 odd"
+                            data-root="PYPL"
+                            data-index="7"
+                          >
+                            <td class="green">PYPL210115C00230000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">230.000</td>
+                            <td class="ra">210115</td>
+                            <td class="ra green">6</td>
+                            <td class="ra">5.474</td>
+                            <td class="ra">5.800</td>
+                            <td class="ra">6.000</td>
+                            <td class="ra green">0.626</td>
+                            <td class="ra green">11.436%</td>
+                            <td class="ra green">315.600</td>
+                            <td class="ra green">120.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-SOLO201218C00009000 odd"
+                            data-root="SOLO"
+                            data-index="8"
+                          >
+                            <td class="red">SOLO201218C00009000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">9.000</td>
+                            <td class="ra">201218</td>
+                            <td class="ra green">2</td>
+                            <td class="ra">0.520</td>
+                            <td class="ra">1.750</td>
+                            <td class="ra">0.350</td>
+                            <td class="ra red">-0.140</td>
+                            <td class="ra red">-26.923%</td>
+                            <td class="ra red">-34.000</td>
+                            <td class="ra red">-280.000</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr
+                            class="op-TAN210115C00085000 odd"
+                            data-root="TAN"
+                            data-index="9"
+                          >
+                            <td class="green">TAN210115C00085000</td>
+                            <td>Long</td>
+                            <td class="ra">C</td>
+                            <td class="ra">85.000</td>
+                            <td class="ra">210115</td>
+                            <td class="ra green">1</td>
+                            <td class="ra">3.766</td>
+                            <td class="ra">4.000</td>
+                            <td class="ra">3.700</td>
+                            <td class="ra green">0.034</td>
+                            <td class="ra green">0.903%</td>
+                            <td class="ra red">-6.600</td>
+                            <td class="ra red">-30.000</td>
+                            <td>Yes</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div
+                    id="mCSB_23_scrollbar_vertical"
+                    class="mCSB_scrollTools mCSB_23_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                    style="display: none"
+                  >
+                    <div class="mCSB_draggerContainer">
+                      <div
+                        id="mCSB_23_dragger_vertical"
+                        class="mCSB_dragger"
+                        style="
+                          position: absolute;
+                          min-height: 50px;
+                          top: 0px;
+                          height: 0px;
+                        "
+                      >
+                        <div
+                          class="mCSB_dragger_bar"
+                          style="line-height: 50px"
+                        ></div>
+                      </div>
+                      <div class="mCSB_draggerRail"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="portfolio-content-tab-cp-2"
+                class="portfolio-content-tab-cp"
+                style="display: none"
+              >
+                <table class="table-1">
+                  <thead>
+                    <tr>
+                      <th>Symbol</th>
+                      <th>Type</th>
+                      <th class="ra"><br />Put/Call</th>
+                      <th class="ra">Strike</th>
+                      <th class="ra">Expiration</th>
+                      <th class="ra">Qty</th>
+                      <th class="ra">P Close</th>
+                      <th class="ra">Entry</th>
+                      <th class="ra">Close</th>
+                      <th class="ra">PNL</th>
+                      <th class="ra">Day PNL</th>
+                      <th>Opened</th>
+                      <th>Closed</th>
+                      <th>O/N</th>
+                    </tr>
+                  </thead>
+                </table>
+                <div
+                  class="scroll-container mCustomScrollbar _mCS_24 mCS-autoHide mCS_no_scrollbar"
+                  style="height: 240px; position: relative; overflow: visible"
+                >
+                  <div
+                    id="mCSB_24"
+                    class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
+                    tabindex="0"
+                    style="max-height: 240px"
+                  >
+                    <div
+                      id="mCSB_24_container"
+                      class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                      style="position: relative; top: 0; left: 0"
+                      dir="ltr"
+                    >
+                      <table id="cpTable-2" class="table-2">
+                        <tbody>
+                          <tr>
+                            <td style="text-align: center">
+                              You have no closed positions.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div
+                    id="mCSB_24_scrollbar_vertical"
+                    class="mCSB_scrollTools mCSB_24_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                    style="display: none"
+                  >
+                    <div class="mCSB_draggerContainer">
+                      <div
+                        id="mCSB_24_dragger_vertical"
+                        class="mCSB_dragger"
+                        style="position: absolute; min-height: 50px; top: 0px"
+                      >
+                        <div
+                          class="mCSB_dragger_bar"
+                          style="line-height: 50px"
+                        ></div>
+                      </div>
+                      <div class="mCSB_draggerRail"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="portfolio-content-tab-ao-2"
+                class="portfolio-content-tab-ao"
+                style="display: none"
+              >
+                <table class="table-1">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Ref No.</th>
+                      <th>Symbol</th>
+                      <th class="ra"><br />Put/Call</th>
+                      <th class="ra">Strike</th>
+                      <th class="ra">Expiration</th>
+                      <th>Side</th>
+                      <th class="ra">Qty</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                      <th>TIF</th>
+                      <th class="ra">Limit</th>
+                      <th class="ra">Stop</th>
+                      <th>Placed</th>
+                    </tr>
+                  </thead>
+                </table>
+                <div
+                  class="scroll-container mCustomScrollbar _mCS_25 mCS-autoHide mCS_no_scrollbar"
+                  style="height: 240px; position: relative; overflow: visible"
+                >
+                  <div
+                    id="mCSB_25"
+                    class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
+                    tabindex="0"
+                    style="max-height: 240px"
+                  >
+                    <div
+                      id="mCSB_25_container"
+                      class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                      style="position: relative; top: 0; left: 0"
+                      dir="ltr"
+                    >
+                      <table
+                        id="aoTable-2"
+                        class="table-2 aoTable"
+                        style="color: white"
+                      >
+                        <tbody>
+                          <tr>
+                            <td style="text-align: center">
+                              You have no active orders.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div
+                    id="mCSB_25_scrollbar_vertical"
+                    class="mCSB_scrollTools mCSB_25_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                    style="display: none"
+                  >
+                    <div class="mCSB_draggerContainer">
+                      <div
+                        id="mCSB_25_dragger_vertical"
+                        class="mCSB_dragger"
+                        style="position: absolute; min-height: 50px; top: 0px"
+                      >
+                        <div
+                          class="mCSB_dragger_bar"
+                          style="line-height: 50px"
+                        ></div>
+                      </div>
+                      <div class="mCSB_draggerRail"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="portfolio-content-tab-io-2"
+                class="portfolio-content-tab-io"
+                style="display: none"
+              >
+                <table class="table-1">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Ref No.</th>
+                      <th>Symbol</th>
+                      <th class="ra"><br />Put/Call</th>
+                      <th class="ra">Strike</th>
+                      <th class="ra">Expiration</th>
+                      <th>Side</th>
+                      <th class="ra">Qty</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                      <th>TIF</th>
+                      <th class="ra">Price</th>
+                      <th class="ra">Limit</th>
+                      <th class="ra">Stop</th>
+                      <th>Placed</th>
+                    </tr>
+                  </thead>
+                </table>
+                <div
+                  class="scroll-container mCustomScrollbar _mCS_26 mCS-autoHide mCS_no_scrollbar"
+                  style="height: 240px; position: relative; overflow: visible"
+                >
+                  <div
+                    id="mCSB_26"
+                    class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
+                    tabindex="0"
+                    style="max-height: 240px"
+                  >
+                    <div
+                      id="mCSB_26_container"
+                      class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                      style="position: relative; top: 0; left: 0"
+                      dir="ltr"
+                    >
+                      <table id="ioTable-2" class="table-2 ioTable">
+                        <tbody>
+                          <tr>
+                            <td style="text-align: center">
+                              You have no inactive orders.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div
+                    id="mCSB_26_scrollbar_vertical"
+                    class="mCSB_scrollTools mCSB_26_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                    style="display: none"
+                  >
+                    <div class="mCSB_draggerContainer">
+                      <div
+                        id="mCSB_26_dragger_vertical"
+                        class="mCSB_dragger"
+                        style="position: absolute; min-height: 50px; top: 0px"
+                      >
+                        <div
+                          class="mCSB_dragger_bar"
+                          style="line-height: 50px"
+                        ></div>
+                      </div>
+                      <div class="mCSB_draggerRail"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="portfolio-content-tab-margin-2"
+                class="portfolio-content-tab-margin"
+                style="display: none"
+              >
+                <div id="portfolio-content-tab-margin-table-2">
+                  <table id="marginTableHeader-2" class="table-1">
+                    <thead>
+                      <tr>
+                        <th>Position</th>
+                        <th>Qty</th>
+                        <th>Leg Qty</th>
+                        <th>Price (for margin/BP)</th>
+                        <th>Margin</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div
+                  class="scroll-container mCustomScrollbar _mCS_27 mCS-autoHide mCS_no_scrollbar"
+                  style="height: 240px; position: relative; overflow: visible"
+                >
+                  <div
+                    id="mCSB_27"
+                    class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
+                    tabindex="0"
+                    style="max-height: 240px"
+                  >
+                    <div
+                      id="mCSB_27_container"
+                      class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                      style="position: relative; top: 0; left: 0"
+                      dir="ltr"
+                    >
+                      <table id="marginTable-2" class="table-2 opTable">
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div
+                    id="mCSB_27_scrollbar_vertical"
+                    class="mCSB_scrollTools mCSB_27_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                    style="display: none"
+                  >
+                    <div class="mCSB_draggerContainer">
+                      <div
+                        id="mCSB_27_dragger_vertical"
+                        class="mCSB_dragger"
+                        style="position: absolute; min-height: 50px; top: 0px"
+                      >
+                        <div
+                          class="mCSB_dragger_bar"
+                          style="line-height: 50px"
+                        ></div>
+                      </div>
+                      <div class="mCSB_draggerRail"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="http://localhost:8080/app.js"></script>
+  </body>
+</html>

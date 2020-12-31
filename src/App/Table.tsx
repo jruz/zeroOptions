@@ -41,7 +41,12 @@ const Table = ({ state }: PropsT): JSX.Element => {
           {state.map((i) => {
             return (
               <tr key={i.name} className={styles.tr}>
-                <td className={`${color(i.pnl)} text-left pointer`} onClick={() => i.click()}>{i.ticker}</td>
+                <td
+                  className={`${color(i.pnl)} text-left pointer`}
+                  onClick={() => i.click()}
+                >
+                  {i.ticker}
+                </td>
                 <td>{i.type}</td>
                 <td>{i.strike}</td>
                 <td>{i.expiration}</td>
