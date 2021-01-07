@@ -52,8 +52,8 @@ const Table = ({ state }: PropsT): JSX.Element => {
                 <td>{i.expiration}</td>
                 <td>{i.dte}</td>
                 <td>{i.quantity}</td>
-                <td>{format(i.entryPrice)}</td>
-                <td>{format(i.currentPrice)}</td>
+                <td>{format(i.entryPrice, false)}</td>
+                <td>{format(i.currentPrice, false)}</td>
                 <td>{format(i.cost)}</td>
                 <td>{format(i.currentValue)}</td>
                 <td className={color(i.pnl)}>{i.change}%</td>
@@ -65,17 +65,17 @@ const Table = ({ state }: PropsT): JSX.Element => {
 
         <tfoot className={styles.footer}>
           <tr>
-            <th colspan="10">P&L</th>
+            <th colSpan="10">P&L</th>
             <td className={color(totalPnl)}>{totalChange}%</td>
             <td className={color(totalPnl)}>{format(totalPnl)}</td>
           </tr>
           <tr>
-            <th colspan="10">Exposure</th>
+            <th colSpan="10">Exposure</th>
             <td>{exposure}%</td>
             <td>{format(totalCost)}</td>
           </tr>
           <tr>
-            <th colspan="10">Total</th>
+            <th colSpan="10">Total</th>
             <td></td>
             <td>{format(total)}</td>
           </tr>
